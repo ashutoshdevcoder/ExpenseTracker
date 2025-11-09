@@ -41,7 +41,7 @@ class SaveInfoViewModel @Inject constructor(
 
                         _getExpenseInfoListState.update { currentList ->
                             currentList.toMutableList().apply {
-                              val info =   ExpenseInfo(_id = expInfo._id, itemName = expInfo.itemName, amount = expInfo.amount, date = expInfo.date)
+                              val info =   ExpenseInfo(_id = expInfo._id, monthName = expInfo.monthName, itemName = expInfo.itemName, amount = expInfo.amount, date = expInfo.date)
                                this[0] = info
                             }
                         }
