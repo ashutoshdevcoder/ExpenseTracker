@@ -1,0 +1,8 @@
+/build
+/release
+/src/release
+/src/debug
+/src/coreDebugStaging
+/releaseStaging
+/lint-baseline.xml
+uploader.gradle

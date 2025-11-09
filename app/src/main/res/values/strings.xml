@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ExpenseTracker</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="str_rupee" translatable="false">₹</string>
+    <string name="save">Save</string>
+    <string name="item_name">Item Name</string>
+    <string name="vegetable">Vegetable</string>
+    <string name="item_desc">Description</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="date_eg">"12/01/2025 "</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="select_all">Select All</string>
+    <string name="deselect_all">Deselect All</string>
+    <string name="add_more">Add More</string>
+    <string name="take_control_of_your_money">Take Control of Your Money</string>
+    <string name="get_started">Get Started</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="enter_your_four_digit_pin">Enter your four digit pin</string>
+    <string name="set_pin">Set Pin</string>
+    <string name="set_up_your_pin">"Set Up Your Pin "</string>
+    <string name="confirm_your_four_digit_pin">Confirm your four digit pin</string>
+    <string name="track_smarter_spend_wiser_your_simple_powerful_expense_tracker_is_here"><![CDATA[Track Smarter, Spend Wiser.Your simple & powerful expense tracker is here]]></string>
+    <string name="know_where_your_money_goes">Know Where Your Money Goes</string>
+    <string name="effortlessly_log_expenses_and_master_your_budget">Effortlessly log expenses and master your budget</string>
+    <string name="your_money_under_control">Your Money, Under Control</string>
+    <string name="the_easiest_way_to_track_spending_and_reach_your_goals">The easiest way to track spending and reach your goals</string>
+    <string name="build_better_financial_habits">Build Better Financial Habits</string>
+    <string name="start_your_journey_to_financial_freedom_by_understanding_your_daily_spending">Start your journey to financial freedom by understanding your daily spending</string>
+    <string name="stop_guessing_start_tracking">Stop Guessing. Start Tracking</string>
+    <string name="get_a_clear_picture_of_your_cash_flow_and_make_smarter_spending_decisions">Get a clear picture of your cash flow and make smarter spending decisions</string>
+</resources>
