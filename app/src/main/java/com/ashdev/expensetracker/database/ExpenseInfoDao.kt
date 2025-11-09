@@ -29,7 +29,9 @@ interface ExpenseInfoDao {
     @Query("SELECT * FROM expense_info")
     fun getExpenseInfoLiveData() : Flow<List<ExpenseInfo>>
 
-    @Query("SELECT * FROM expense_info where monthName = :monthName")
+    @Query("SELECT * FROM expense_info where monthName = :monthName ORDER BY " + "substr(date, 7, 4) || '-' || " +  // year
+            "substr(date, 4, 2) || '-' || " +  // month
+            "substr(date, 1, 2) ASC")
     fun getExpenseInfoByMonth(monthName: String) : Flow<List<ExpenseInfo>>
 
     @Query("SELECT monthName FROM expense_info")
