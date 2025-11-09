@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForwardIos
@@ -40,16 +42,21 @@ fun ExpensesHistoryScreen(expenseHistoryViewModel: ExpensesViewModel?,onClicked:
     }
 
     Box(modifier = Modifier.fillMaxSize().padding(horizontal = 10.dp).background(color = androidx.compose.ui.graphics.Color.White)) {
-        LazyColumn(contentPadding = PaddingValues(5.dp))  {
-            items (monthList?.value.orEmpty()){
-                Card(modifier = Modifier.clickable{
-                    onClicked(Screens.ExpensesHistoryDetailScreen(it))
+        LazyVerticalGrid (columns = GridCells.Fixed(2),
+            contentPadding = PaddingValues(5.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp))  {
+            items (monthList?.value?.size ?:0){ index ->
+                val data = monthList?.value?.get(index = 0)
+                Card(modifier = Modifier.size(100.dp).clickable{
+                    onClicked(Screens.ExpensesHistoryDetailScreen(data.orEmpty()))
                 }) {
                     Row(horizontalArrangement = Arrangement.Absolute.SpaceBetween,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal = 20.dp),
-                        verticalAlignment = Alignment.CenterVertically) {
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxSize().padding(vertical = 10.dp, horizontal = 20.dp),) {
                         Text(
-                            text = it,
+                            modifier = Modifier.weight(1f),
+                            text = data.orEmpty(),
                             style = mediumFont.copy(fontSize = 20.sp))
 
                         Icon(Icons.Filled.ArrowForwardIos, contentDescription = "")

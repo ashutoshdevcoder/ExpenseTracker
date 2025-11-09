@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -41,7 +42,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ashdev.expensetracker.R
+import com.ashdev.expensetracker.helper.isFalse
 import com.ashdev.expensetracker.helper.isTrue
+import com.ashdev.expensetracker.helper.showToast
 import com.ashdev.expensetracker.ui.customView.CustomAppBar
 import com.ashdev.expensetracker.ui.customView.OtpTextField
 import com.ashdev.expensetracker.ui.theme.boldFont
@@ -58,11 +61,19 @@ fun LoginScreen(setPinViewModel: SetPinViewModel?, onClicked: (Screens?) -> Unit
     val pinText = remember { mutableStateOf("") }
     val isBiometricEnabled = remember { mutableStateOf(false) }
     val onBackPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
-
+    val context = LocalContext.current
     LaunchedEffect(isPinExist?.value) {
-        if (isPinExist?.value.isTrue()) {
-            onClicked(Screens.HomeContainerScreen)
+        isPinExist?.let {
+            if (it.value.isTrue()) {
+                onClicked(Screens.HomeContainerScreen)
+            }
+            else if(it.value.isFalse())
+            {
+                context.showToast("Please Enter Correct Pin ")
+            }
+            setPinViewModel.resetPinExistValue()
         }
+
     }
 
 

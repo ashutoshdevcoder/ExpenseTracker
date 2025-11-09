@@ -36,6 +36,10 @@ class SetPinViewModel @Inject constructor(
         }
     }
 
+    fun resetPinExistValue() {
+        _isPinExist.value=null
+    }
+
 }
 
 sealed interface SetPinEvent{
