@@ -34,7 +34,7 @@ interface ExpenseInfoDao {
             "substr(date, 1, 2) ASC")
     fun getExpenseInfoByMonth(monthName: String) : Flow<List<ExpenseInfo>>
 
-    @Query("SELECT monthName FROM expense_info")
+    @Query("SELECT DISTINCT monthName FROM expense_info")
     fun getMonthListLiveData() : Flow<List<String>>
 
     @Query("SELECT * FROM expense_info where _id = :id")
